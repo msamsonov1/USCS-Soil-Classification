@@ -1,0 +1,77 @@
+#very rough estimation of USCS classification, for better result need proctor, atterburg, visual classification
+spt_value = int(input("Enter the SPT value: "))
+friction_angle = int(input("Enter the friction angle in degrees: "))
+uc_strength = float(input("Enter the undrained compressive strength in ksf: "))
+
+if spt_value <= 2:
+    uscs = "GW"
+elif spt_value <= 4:
+    uscs = "GP"
+elif spt_value <= 8:
+    if friction_angle < 28 and uc_strength < 0.5:
+        uscs = "GW-GM"
+    else:
+        uscs = "SW-SM"
+elif spt_value <= 15:
+    if friction_angle < 28 and uc_strength < 0.5:
+        uscs = "GW-GC"
+    else:
+        uscs = "SW-SC"
+elif spt_value <= 30:
+    if friction_angle < 28 and uc_strength < 0.5:
+        uscs = "GP-GC"
+    elif friction_angle >= 28 and uc_strength >= 0.5:
+        uscs = "CL-ML"
+    else:
+        uscs = "SW-SC"
+elif spt_value <= 50:
+    if friction_angle < 28 and uc_strength < 0.5:
+        uscs = "GM"
+    elif friction_angle >= 28 and uc_strength >= 0.5:
+        uscs = "ML-CL"
+    else:
+        uscs = "SW-SC"
+elif spt_value <= 100:
+    if friction_angle < 28 and uc_strength < 0.5:
+        uscs = "GC"
+    elif friction_angle >= 28 and uc_strength >= 0.5:
+        uscs = "CL"
+    else:
+        uscs = "SW-SC"
+elif spt_value <= 200:
+    if friction_angle < 28 and uc_strength < 0.5:
+        uscs = "GC-GM"
+    elif friction_angle >= 28 and uc_strength >= 0.5:
+        uscs = "MH"
+    else:
+        uscs = "SW-SM"
+elif spt_value <= 300:
+    if friction_angle < 28 and uc_strength < 0.5:
+        uscs = "CL"
+    elif friction_angle >= 28 and uc_strength >= 0.5:
+        uscs = "MH-CH"
+    else:
+        uscs = "SW-SC"
+elif spt_value <= 500:
+    if friction_angle < 28 and uc_strength < 0.5:
+        uscs = "CL-ML"
+    elif friction_angle >= 28 and uc_strength >= 0.5:
+        uscs = "CH"
+    else:
+        uscs = "SW-SC"
+elif spt_value <= 800:
+    if friction_angle < 28 and uc_strength < 0.5:
+        uscs = "ML"
+    elif friction_angle >= 28 and uc_strength >= 0.5:
+        uscs = "CH"
+    else:
+        uscs = "SW-SC"
+elif spt_value <= 1300:
+    if friction_angle < 28 and uc_strength < 0.5:
+        uscs = "CH"
+    else:
+        uscs = "MH"
+else:
+    uscs = "MH"
+
+print(f"The USCS classification for the soil based on the SPT value of {spt_value}, friction angle of {friction_angle} degrees, and undrained compressive strength of {uc_strength} ksf is: {uscs}")
