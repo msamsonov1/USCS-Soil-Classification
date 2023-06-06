@@ -1,0 +1,32 @@
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+
+# Upload the JPEG image
+image = mpimg.imread("USA.jpg")
+
+# Show the image using Matplotlib
+plt.imshow(image)
+
+# Add coordinates (x, y) to print the text "soil types" overtop
+
+plt.text(263, 335, "Collapsible", color="red", size=10, alpha=0.9)
+plt.text(558, 369, "Expansive/Shrinking", color="green", size=10, alpha=0.9)
+plt.text(52, 364, "Organic/Peat", color="blue", size=10, alpha=0.9)
+plt.text(26, 201, "Dispersive", color="green", size=10, alpha=0.9)
+plt.text(386, 346, "Liquefiable", color="green", size=10, alpha=0.9)
+plt.text(57, 93, "Colluvium/Talus", color="blue", size=10, alpha=0.9)
+plt.text(118, 263, "Degradable", color="green", size=10, alpha=0.9)
+plt.text(205, 246, "Corrosive", color="red", size=10, alpha=0.9)
+plt.text(83, 151, "Cemented Sands", color="green", size=10, alpha=0.9)
+plt.text(366, 147, "Sensitive Clays", color="blue", size=10, alpha=0.9)
+plt.text(434, 285, "High Sulfate", color="green", size=10, alpha=0.9)
+plt.text(449, 248, "Pyritic/Acid", color="red", size=10, alpha=0.9)
+plt.text(276, 62, "Unsaturated Soils", color="green", size=10, alpha=0.9)
+plt.text(48, 392, "Permafrost", color="green", size=10, alpha=0.9)
+
+
+# Bring the map to the back
+plt.gca().set_zorder(0)
+
+# Show the image
+plt.show()
